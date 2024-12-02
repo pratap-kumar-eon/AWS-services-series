@@ -1,0 +1,22 @@
+service: serverless
+frameworkVersion: "3"
+
+provider:
+  name: aws,
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  demoHelloFn: 
+    handler: hello.handler
+    events: 
+      - httpApi:
+        path: /hello
+        method: GET
+  demoByeFn:
+    handler: bye.js
+    evens:
+      -httpApi:
+        path: /bye
+        method: GET
+
